@@ -17,6 +17,7 @@ import java.util.concurrent.ExecutionException;
 public class RepositoryDescription extends AppCompatActivity {
 ImageView owner_img;
 TextView name,owner_name,languages,description;
+String lan="",lang="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,17 @@ TextView name,owner_name,languages,description;
         try {
             String myjson = new syncdata().execute(r.getLanguages_url()).get();
             JSONObject language=new JSONObject(myjson);
-            languages.setText(language.toString());
+            String[] l=language.toString().split(",",0);
+            for(int x=0;x<l.length;x++){
+                lan=lan+l[x]+" ";
+
+            }
+            String[] la=lan.split("\"",0);
+            for(int x=1;x<la.length;x=x+2){
+                lang=lang+la[x]+",";
+
+            }
+            languages.setText(lang.substring(0,lang.length()-1)+".");
         } catch (ExecutionException | JSONException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
