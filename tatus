@@ -1,0 +1,24 @@
+[33mcommit a865ac4dda940de280bb8ce2612d9d162846055a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Akhilreddymedapati <akhilreddymedapati@gmail.com>
+Date:   Wed Jul 10 23:51:13 2019 -0400
+
+    added list httphandler class, Repository class
+
+[33mcommit 9f1cb26f7e9f53a046ae34d98b74ea6d59f532e1[m
+Author: mchittimelli <cmahesh804@gmail.com>
+Date:   Wed Jul 10 17:25:15 2019 -0400
+
+    home screen
+
+[33mcommit 77ef2926edabcb12c5dc50c131f52f99d16699a6[m
+Author: mchittimelli <cmahesh804@gmail.com>
+Date:   Wed Jul 10 17:18:06 2019 -0400
+
+    splash screen with logo and title
+    empty home screen
+
+[33mcommit 52e8b780b966c8a3c9b27bef4098c4b42956192c[m
+Author: mchittimelli <cmahesh804@gmail.com>
+Date:   Tue Jul 2 16:15:43 2019 -0400
+
+    empty layout
