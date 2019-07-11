@@ -56,11 +56,11 @@ public class HomeScreen extends AppCompatActivity {
            // System.out.println("idi naa array"+repositoryArrayList.get(1).toString());
 
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            System.out.println("Execution Exception Home screen");
         }  catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("InterruptedException Home screen");
         } catch (JSONException e) {
-            e.printStackTrace();
+            System.out.println("JSONException Home screen");
         }
 
     }
