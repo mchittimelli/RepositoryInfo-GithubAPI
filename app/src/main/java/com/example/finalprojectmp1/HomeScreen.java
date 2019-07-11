@@ -2,7 +2,10 @@ package com.example.finalprojectmp1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -55,6 +58,16 @@ public class HomeScreen extends AppCompatActivity {
             listView.setAdapter(listAdapt);
            // System.out.println("idi naa array"+repositoryArrayList.get(1).toString());
 
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    Intent i = new Intent(HomeScreen.this,RepositoryDescription.class);
+
+            i.putExtra("data",repositoryArrayList.get(position));
+            startActivity(i);
+                }
+            });
         } catch (ExecutionException e) {
             System.out.println("Execution Exception Home screen");
         }  catch (InterruptedException e) {
