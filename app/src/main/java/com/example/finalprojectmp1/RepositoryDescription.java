@@ -9,6 +9,11 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.concurrent.ExecutionException;
+
 public class RepositoryDescription extends AppCompatActivity {
 ImageView owner_img;
 TextView name,owner_name,languages,description;
@@ -29,8 +34,17 @@ TextView name,owner_name,languages,description;
 
         owner_name.setText(r.getOwner_name());
         name.setText(r.getName());
-        languages.setText(r.getLanguages_url());
+
         description.setText(r.getDescription());
 
+        try {
+            String myjson = new syncdata().execute(r.getLanguages_url()).get();
+            JSONObject language=new JSONObject(myjson);
+            languages.setText(language.toString());
+        } catch (ExecutionException | JSONException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
