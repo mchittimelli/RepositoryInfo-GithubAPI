@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FinalProjectMP1</string>
+    <string name="link">https://api.github.com/repositories</string>
 </resources>
