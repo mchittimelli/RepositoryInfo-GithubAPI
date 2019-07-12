@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,9 +16,10 @@ import org.json.JSONObject;
 import java.util.concurrent.ExecutionException;
 
 public class RepositoryDescription extends AppCompatActivity {
-ImageView owner_img;
-TextView name,owner_name,languages,description;
-String lan="",lang="";
+    ImageView owner_img;
+    TextView name,owner_name,languages,description;
+    String lan="",lang="";
+    String owner,ownerAvatar,followers,following,organizations,repos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,5 +59,25 @@ String lan="",lang="";
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        owner=r.getOwner_name();
+        ownerAvatar=r.getOwner_avatar_url();
+        followers=r.getFollowers_url();
+        following=r.getFollowing_url();
+        organizations=r.getOrganization_url();
+        repos=r.getRepos_url();
+
+        owner_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ownerIntent=new Intent(RepositoryDescription.this,OwnerInfo.class);
+                ownerIntent.putExtra("ownerName",owner);
+                ownerIntent.putExtra("owner_img",ownerAvatar);
+                ownerIntent.putExtra("followers",followers);
+                ownerIntent.putExtra("following",following);
+                ownerIntent.putExtra("organization",organizations);
+                ownerIntent.putExtra("repos",repos);
+                startActivity(ownerIntent);
+            }
+        });
     }
 }

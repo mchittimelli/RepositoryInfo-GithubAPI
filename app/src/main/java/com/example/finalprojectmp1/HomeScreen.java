@@ -35,28 +35,28 @@ public class HomeScreen extends AppCompatActivity {
             System.out.println("MainActivity :"+myjson);
             JSONArray repositories= new JSONArray(myjson);
 
-           /* JSONObject mainObj = new JSONObject(myjson);
-
-            JSONArray repositories = mainObj.getJSONArray("Pokemon");*/
-
-
             for (int i=0;i<30;i++){
 
                 JSONObject childObj = repositories.getJSONObject(i);
-
                 String name = childObj.getString("name");
                 String owner=childObj.getJSONObject("owner").getString("login");
                 String ownerAvatar=childObj.getJSONObject("owner").getString("avatar_url");
                 String languages_url = childObj.getString("languages_url");
                 String description = childObj.getString("description");
-                repositoryArrayList.add(new Repository(name,owner,ownerAvatar,languages_url,description));
+                String following_url=childObj.getJSONObject("owner").getString("following_url");
+                String followers_url=childObj.getJSONObject("owner").getString("followers_url");
+
+                String organization_url=childObj.getJSONObject("owner").getString("organizations_url");
+                String repos_url=childObj.getJSONObject("owner").getString("repos_url");
 
 
+
+                repositoryArrayList.add(new Repository(name,owner,ownerAvatar,languages_url,description,followers_url,following_url,organization_url,repos_url));
             }
             listAdapt = new ListAdapt(getApplicationContext(),repositoryArrayList);
 
             listView.setAdapter(listAdapt);
-           // System.out.println("idi naa array"+repositoryArrayList.get(1).toString());
+            System.out.println("idi naa array"+repositoryArrayList.get(1).toString());
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -64,8 +64,8 @@ public class HomeScreen extends AppCompatActivity {
 
                     Intent i = new Intent(HomeScreen.this,RepositoryDescription.class);
 
-            i.putExtra("data",repositoryArrayList.get(position));
-            startActivity(i);
+                    i.putExtra("data",repositoryArrayList.get(position));
+                    startActivity(i);
                 }
             });
         } catch (ExecutionException e) {
