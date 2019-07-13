@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutionException;
 
 public class OwnerInfo extends AppCompatActivity {
     ImageView owner_img;
-    TextView ownerName,followers,following,organization,repos,followersCount,organizationsCount;
+    TextView ownerName,followers,following,organization,repos,followersCount,organizationsCount,followingCount;
     String followersUrl,followingUrl,organizationsUrl,reposUrl;
 
 public String[] nameList(String jsonURl,String property){
@@ -55,6 +55,8 @@ public String[] nameList(String jsonURl,String property){
         repos=findViewById(R.id.repos);
        followersCount=findViewById(R.id.followers_count);
        organizationsCount=findViewById(R.id.Organizations_count);
+       followingCount=findViewById(R.id.following_count);
+
         final OwnerInfo ownerInfo=new OwnerInfo();
         Bundle bundle = getIntent().getExtras();
         String imgurl = bundle.getString("owner_img");
@@ -76,7 +78,9 @@ public String[] nameList(String jsonURl,String property){
        followers.setText(followersDetails[0]);
       followersCount.setText(followersDetails[1]);
        //for following
-        following.setText("Data not found");
+        String followingDetails[]=ownerInfo.nameList(followingUrl,"login");
+        following.setText(followingDetails[0]);
+        followingCount.setText(followingDetails[1]);
          //for organizations
         String organizationDetails[]=ownerInfo.nameList(organizationsUrl,"login");
         organization.setText(organizationDetails[0]);

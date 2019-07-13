@@ -53,7 +53,8 @@ else
                 String ownerAvatar=childObj.getJSONObject("owner").getString("avatar_url");
                 String languages_url = childObj.getString("languages_url");
                 String description = childObj.getString("description");
-                String following_url=childObj.getJSONObject("owner").getString("following_url");
+                String followingurl=childObj.getJSONObject("owner").getString("following_url");
+                String following_url=followingurl.substring(0,followingurl.indexOf('{'));
                 String followers_url=childObj.getJSONObject("owner").getString("followers_url");
 
                 String organization_url=childObj.getJSONObject("owner").getString("organizations_url");
