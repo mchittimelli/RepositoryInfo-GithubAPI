@@ -20,7 +20,7 @@ public class HomeScreen extends AppCompatActivity {
     ArrayList<Repository> repositoryArrayList;
     ListView listView;
     ListAdapt listAdapt;
-
+String link;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +29,17 @@ public class HomeScreen extends AppCompatActivity {
         repositoryArrayList=new ArrayList<>();
         listView=findViewById(R.id.list_repo);
 
-        String link = getResources().getString(R.string.link);
+        if(getIntent().getExtras()!=null)
+        {
+
+            Bundle bundle = getIntent().getExtras();
+        String repurl=bundle.getString("url");
+
+
+    link=repurl;}
+else
+
+        link = getResources().getString(R.string.link);
         try {
             String myjson = new syncdata().execute(link).get();
             System.out.println("MainActivity :"+myjson);
