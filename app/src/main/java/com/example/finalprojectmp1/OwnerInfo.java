@@ -17,18 +17,23 @@ import java.util.concurrent.ExecutionException;
 
 public class OwnerInfo extends AppCompatActivity {
     ImageView owner_img;
-    TextView ownerName,followers,following,organization,repos;
+    TextView ownerName,followers,following,organization,repos,followersCount,organizationsCount;
     String followersUrl,followingUrl,organizationsUrl,reposUrl;
 
-public String nameList(String jsonURl,String property){
-    String result="";
+public String[] nameList(String jsonURl,String property){
+    String names="";
+
+    String[] res=new String[2];
     try {
         String  myjson = new syncdata().execute(jsonURl).get();
         JSONArray myJsonArray= new JSONArray(myjson);
+
         for(int x=0;x<myJsonArray.length();x++){
             JSONObject childObj = myJsonArray.getJSONObject(x);
-            result=result+childObj.getString(property)+"\n";
+            names=names+childObj.getString(property)+"\n";
         }
+       res[0]=names;
+        res[1]=String.valueOf(myJsonArray.length());
     } catch (ExecutionException e) {
         e.printStackTrace();
     } catch (InterruptedException e) {
@@ -36,7 +41,7 @@ public String nameList(String jsonURl,String property){
     } catch (JSONException e) {
         e.printStackTrace();
     }
-    return result;
+    return res;
 }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,8 @@ public String nameList(String jsonURl,String property){
         following=findViewById(R.id.following);
         organization=findViewById(R.id.organization);
         repos=findViewById(R.id.repos);
+       followersCount=findViewById(R.id.followers_count);
+       organizationsCount=findViewById(R.id.Organizations_count);
         final OwnerInfo ownerInfo=new OwnerInfo();
         Bundle bundle = getIntent().getExtras();
         String imgurl = bundle.getString("owner_img");
@@ -65,11 +72,15 @@ public String nameList(String jsonURl,String property){
 
 
         //for followers
-       followers.setText(ownerInfo.nameList(followersUrl,"login"));
+        String followersDetails[]=ownerInfo.nameList(followersUrl,"login");
+       followers.setText(followersDetails[0]);
+      followersCount.setText(followersDetails[1]);
        //for following
         following.setText("Data not found");
          //for organizations
-        organization.setText(ownerInfo.nameList(organizationsUrl,"login"));
+        String organizationDetails[]=ownerInfo.nameList(organizationsUrl,"login");
+        organization.setText(organizationDetails[0]);
+       organizationsCount.setText(organizationDetails[1]);
 
        // String result="";
         try {
