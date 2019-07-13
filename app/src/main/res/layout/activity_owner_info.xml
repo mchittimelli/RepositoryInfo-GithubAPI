@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="User Name:"
+            android:text="User Name : "
             android:layout_weight="1"
             android:textAlignment="textEnd"
             android:textStyle="bold"
@@ -46,7 +46,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Followers:"
+            android:text="Followers : "
             android:layout_weight="1"
             android:textAlignment="textEnd"
             android:textStyle="bold"
@@ -86,7 +86,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Following:"
+            android:text="Following : "
             android:layout_weight="1"
             android:textAlignment="textEnd"
             android:textStyle="bold"
@@ -125,7 +125,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Organizations:"
+            android:text="Organizations : "
             android:layout_weight="1"
             android:textAlignment="textEnd"
             android:textStyle="bold"
@@ -165,8 +165,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Repositories:"
-                android:textAlignment="textEnd"/>
+                android:text="Repositories : "
+                android:textAlignment="textEnd"
+                android:textStyle="bold"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"

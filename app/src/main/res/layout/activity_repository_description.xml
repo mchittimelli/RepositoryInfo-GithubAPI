@@ -34,7 +34,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
-                android:text="Owner:"
+                android:text="Owner : "
                 android:textStyle="bold"
                 android:textAlignment="textEnd"/>
             <LinearLayout
@@ -70,7 +70,7 @@
             android:layout_weight="0.5"
             android:textAlignment="textEnd"
             android:textStyle="bold"
-            android:text="Languages:"/>
+            android:text="Languages : "/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -88,7 +88,7 @@
             android:layout_weight="0.5"
             android:textAlignment="textEnd"
             android:textStyle="bold"
-            android:text="Description:"/>
+            android:text="Description : "/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
