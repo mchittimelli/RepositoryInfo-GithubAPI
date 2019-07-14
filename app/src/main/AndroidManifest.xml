@@ -11,10 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OwnerInfo"></activity>
-        <activity android:name=".RepositoryDescription" />
-        <activity android:name=".HomeScreen" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".OwnerInfo"
+            android:label="Owner Info"
+            >
+        </activity>
+        <activity android:name=".RepositoryDescription"
+            android:label="Repository Info"/>
+        <activity android:name=".HomeScreen"
+            android:label="Repository List"
+            />
+        <activity android:name=".MainActivity"
+            android:label="Welcome to liste de referential..!">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

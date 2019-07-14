@@ -1,5 +1,6 @@
 package com.example.finalprojectmp1;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         img=findViewById(R.id.mainlogo);
         title=findViewById(R.id.logo);
