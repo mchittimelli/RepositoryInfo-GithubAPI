@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,6 +40,8 @@ public class RepositoryDescription extends AppCompatActivity {
         name.setText(r.getName());
 
         description.setText(r.getDescription());
+        description.setMovementMethod(new ScrollingMovementMethod());
+
 
         try {
             String myjson = new syncdata().execute(r.getLanguages_url()).get();
@@ -54,6 +57,7 @@ public class RepositoryDescription extends AppCompatActivity {
 
             }
             languages.setText(lang.substring(0,lang.length()-1)+".");
+            languages.setMovementMethod(new ScrollingMovementMethod());
         } catch (ExecutionException | JSONException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
